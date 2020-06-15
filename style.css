@@ -1,0 +1,100 @@
+body {
+    background-image: url('tile.jpg');
+    position: relative;
+  }
+  h1 {
+      color: black;
+      text-align: center;
+      
+  }
+
+  .white {
+    background-color: white;
+    margin-left: 20px;
+    border: black solid 3px;
+  }
+
+  #taskheader {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    display: block;
+
+  }
+
+
+  form {
+    background-image: url('formbg.jpg');
+    top:150px;
+    left: 50%;
+    border: black  solid 5px;
+    transform: translateY(-50%) translateX(-50%);
+    width: 50%; 
+    /* text-align: center; */
+    /* padding: 0.5%; */
+    position: absolute; 
+
+
+  }  
+
+  input {
+    
+    margin: 20px;
+  }
+
+  #temptask {
+    overflow: scroll;
+
+  }
+
+  textarea {
+    resize: none;
+    width: 50%;
+    margin-top: 15px;
+  }
+
+  #submit {
+   position: absolute;
+    left: 45%;
+    top: 300px;
+    cursor: pointer;
+    transform: translateX(-50%) translateY(-50%);
+
+  }
+  
+  #eliminate {
+    position: absolute;
+     left: 55%;
+     top: 300px;
+     cursor: pointer;
+     transform: translateX(-50%) translateY(-50%);
+ 
+   }
+
+span {
+  background-image: url('notebg.png');
+  height: 200px;
+  width: 150px;
+  display: flex;
+  position: relative;
+  flex-wrap: wrap;
+  
+}
+ 
+#notesholder {
+  position: absolute;
+  top: 400px;
+  left: 10%;
+  display: flex;
+  overflow: auto;
+ 
+}
+
+.deletex {
+  border: 3px red solid;
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  cursor: pointer;
+}
+ 

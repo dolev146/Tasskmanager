@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project 01</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="project01.js"></script>
+
+</head>
+
+<body>
+
+    <header><img src="title.png" id="taskheader" alt="Picture not found">
+    </header>
+    <div>
+        <form>
+            <label class="white" for="temptask">Task description:</label>
+            <textarea id="temptask" value="text"></textarea>
+            <br>
+            <label class="white" for="tempdate">Date:</label>
+            <input type="date" id="tempdate">
+            <br>
+            <label class="white" for="temptime">Time:</label>
+            <input type="time" id="temptime">
+        </form>
+    </div>
+    <br>
+    <div>
+        <button id="submit">Submit Note</button>
+        <button id="eliminate">Clear Note</button>
+    </div>
+
+    <div id="notesholder">
+        <span>
+            <picture id="checking" class="deletex">
+
+            </picture>
+        </span>
+    </div>
+
+    <script>
+        let notes = [];
+        let idCounter = 0;
+        let temptask = document.getElementById("temptask");
+        let tempdate = document.getElementById("tempdate");
+        let temptime = document.getElementById("temptime");
+
+        generate = document.getElementById("submit");
+        generate.onclick = function (e) {
+            if (temptask.value === "") {
+                alert("required field");
+                temptask.focus();
+            }
+
+            else if (tempdate.value === "") {
+                alert("required field");
+                tempdate.focus();
+            }
+
+            else {
+                let note = new Object;
+                let taskinfo = temptask.value;
+                let dateinfo = tempdate.value;
+                let timeinfo = temptime.value;
+                note.id = idCounter;
+                idCounter++;
+                note.taskinfo = taskinfo;
+                note.dateinfo = dateinfo;
+                note.timeinfo = timeinfo;
+                notes.push(note);
+                storeinfo();
+            }
+
+
+        }
+
+  
+
+        clr = document.getElementById("eliminate");
+        clr.onclick = function (e) {
+            temptask.value = "";
+            tempdate.value = "";
+            temptime.value = "";
+        }
+
+
+        function displaynotes() {
+            for (var n = 0; n < idCounter; i++) {
+
+                document.getElementById("notesholder").innerHTML = `<span>:${note[1].taskinfo}<span>`
+            }
+        }
+
+        var deletethis = document.getElementById("checking");
+        deletethis.onclick = function () {
+            alert("ok");
+        }
+
+        function storeinfo() {
+            localStorage.setItem("lnotes", JSON.stringify(notes));
+            localStorage.setItem("countId", JSON.stringify(idCounter));
+
+        }
+
+        // function extractinfo() {
+        //     var notes = localStorage.getItem("lnotes", JSON.parse(notes));
+
+        //     var idCounter = localStorage.getItem("countId", JSON.parse(idCounter));
+        //     if (idCounter === null) {
+        //         idCounter = 0;
+        //     }
+        //     else {
+        //         idCounter = localStorage.getItem("countId", JSON.parse(idCounter));
+        //     }
+
+        // }
+
+           // window.onload = function (e) {
+        //     notes = localStorage.getItem("lnotes");
+        //     if (notes) {
+        //         return;
+        //     }
+        //     else {
+        //     notes = JSON.parse(notes);
+        //     for (t = 0; t < idCounter; t++); {
+        //         document.getElementById("notesholder").innerHTML = "<span> ${notes(t)} </span>"
+
+        //     }}
+
+
+        // }
+
+
+
+    </script>
+
+
+
+</body>
+
+</html>
