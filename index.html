@@ -41,8 +41,11 @@
     </div>
 
     <script>
-        let notes = [];
+        
         let idCounter = 0;
+        window.onload = extractinfo();        
+        // document.addEventListener('DOMContentLoaded', displaynotes());
+        let notes = [];
         let temptask = document.getElementById("temptask");
         let tempdate = document.getElementById("tempdate");
         let temptime = document.getElementById("temptime");
@@ -86,17 +89,12 @@
         }
 
 
-        function displaynotes() {
-            for (var n = 0; n < idCounter; i++) {
 
-                document.getElementById("notesholder").innerHTML = `<span>:${note[1].taskinfo}<span>`
-            }
-        }
 
-        var deletethis = document.getElementById("checking");
-        deletethis.onclick = function () {
-            alert("ok");
-        }
+        // var deletethis = document.getElementById("checking");
+        // deletethis.onclick = function () {
+        //     alert("ok");
+        // }
 
         function storeinfo() {
             localStorage.setItem("lnotes", JSON.stringify(notes));
@@ -104,35 +102,36 @@
 
         }
 
-        // function extractinfo() {
-        //     var notes = localStorage.getItem("lnotes", JSON.parse(notes));
-
-        //     var idCounter = localStorage.getItem("countId", JSON.parse(idCounter));
-        //     if (idCounter === null) {
-        //         idCounter = 0;
-        //     }
-        //     else {
-        //         idCounter = localStorage.getItem("countId", JSON.parse(idCounter));
-        //     }
-
-        // }
-
-           // window.onload = function (e) {
-        //     notes = localStorage.getItem("lnotes");
-        //     if (notes) {
-        //         return;
-        //     }
-        //     else {
-        //     notes = JSON.parse(notes);
-        //     for (t = 0; t < idCounter; t++); {
-        //         document.getElementById("notesholder").innerHTML = "<span> ${notes(t)} </span>"
-
-        //     }}
+        function extractinfo() {
+            
+            let tempnotes = localStorage.getItem("lnotes");
+            
+            
+            if (!tempnotes) {
+               
+               return;
+            }
+                
+                let notes = JSON.parse(tempnotes);
+     
+            let tempidCounter = localStorage.getItem("countId");
+            if (!tempidCounter) {
+                return;
+            }
+       
+            idCounter = JSON.parse(tempidCounter);
 
 
-        // }
+
+            for (t = 0; t < idCounter; t++); {
+                document.getElementById("notesholder").innerHTML = "<span> ${notes(t)} </span>"
+
+            }}
 
 
+        
+
+        
 
     </script>
 
