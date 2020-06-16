@@ -41,10 +41,9 @@
     </div>
 
     <script>
-        
+
         let idCounter = 0;
         let notes = [];
-        window.onload = extractinfo();        
         // document.addEventListener('DOMContentLoaded', displaynotes());
         let temptask = document.getElementById("temptask");
         let tempdate = document.getElementById("tempdate");
@@ -79,7 +78,7 @@
 
         }
 
-  
+
 
         clr = document.getElementById("eliminate");
         clr.onclick = function (e) {
@@ -102,36 +101,29 @@
 
         }
 
-        function extractinfo() {
-            
+        window.onload = function (e) {
+
             let tempnotes = localStorage.getItem("lnotes");
-            
-            
             if (!tempnotes) {
-               
-               return;
+                return;
             }
-                
-                let notes = JSON.parse(tempnotes);
-     
+            let notes = JSON.parse(tempnotes);
             let tempidCounter = localStorage.getItem("countId");
             if (!tempidCounter) {
                 return;
             }
-       
             idCounter = JSON.parse(tempidCounter);
 
-
-
-            for (t = 0; t < idCounter; t++); {
+            for (t = 0; t < notes.length; t++); {
                 document.getElementById("notesholder").innerHTML = "<span> ${notes(t)} </span>"
+            }
+        }
+    
 
-            }}
 
 
-        
 
-        
+
 
     </script>
 
